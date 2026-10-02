@@ -1,0 +1,30 @@
+{
+    "$schema": "https://opencode.ai/config.json",
+    "agents": {
+        "preciso": {
+            "description": "Agente determinista con temperatura 0 para tareas de precision: refactorizacion, codigo exacto, analisis de bugs y cumplimiento estricto de especificaciones.",
+            "mode": "primary",
+            "model": "opencode/big-pickle",
+            "temperature": 0,
+            "prompt": "Eres un agente de maxima precision. Responde de forma determinista, sin inventar detalles, siguiendo al pie de la letra las especificaciones y las convenciones del proyecto. Prioriza la exactitud sobre la originalidad."
+        },
+        "creativo": {
+            "description": "Agente creativo con temperatura 1 para lluvia de ideas, arquitectura y alternativas.",
+            "mode": "primary",
+            "model": "opencode/big-pickle",
+            "temperature": 1,
+            "prompt": "Eres un agente creativo. Genera ideas originales y propone soluciones alternativas, explorando caminos poco convencionales. Estas enfocado en lluvia de ideas, diseno de arquitectura y experimentacion."
+        },
+        "explorador": {
+            "description": "Subagente equilibrado con temperatura 0.5 y top-k/top-p ajustados para exploracion moderada.",
+            "mode": "primary",
+            "model": "opencode/big-pickle",
+            "temperature": 0.5,
+            "top_p": 0.8,
+            "options": {
+                "top_k": 40
+            },
+            "prompt": "Eres un subagente equilibrado. Combina rigor tecnico con flexibilidad practica. Explora alternativas razonables sin perder determinismo."
+        }
+    }
+}
