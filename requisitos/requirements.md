@@ -87,6 +87,8 @@ Está pensada para un eso general de escala mínima que replica el caso de uso r
 - **CA-1.** Dado que existen comentarios previos, cuando abro el artículo, entonces se muestran ordenados del más nuevo al más viejo por fecha de creación, junto con sus respuestas.
 - **CA-2.** Dado que no existen comentarios, cuando abro el artículo, entonces se muestra el mensaje "Aún no hay comentarios".
 
+**Fuera de alcance de esta feature:** paginacion, filtros y busquedas.
+
 ---
 
 ### F-RES-001: Responder a un comentario
@@ -120,7 +122,7 @@ Está pensada para un eso general de escala mínima que replica el caso de uso r
 - Moderación, aprobación previa o roles (moderador)
 - Likes, reacciones y reportes
 - Respuestas anidadas (más de 1 nivel de profundidad)
-- Paginación o infinite scroll
+- Paginación o infinite scroll, busquedas y filtros
 - Notificaciones
 - Rich text, markdown o emojis extendidos
 - Internacionalización
