@@ -1,12 +1,13 @@
 # requirements.md — App de Comentarios
 
 - **Nombre del proyecto:** App de Comentarios
-- **Versión del documento:** 0.2
+- **Versión del documento:** 0.3
 - **Estado:** LISTO PARA REVISIÓN
 - **Semana:** 3 — SDD I (Spec First)
+- **Stack Tecnológico Obligatorio:** PHP 8.2, MySQL y Vanilla JavaScript (JS nativo, sin frameworks)
 
 > **Nota:** este es el documento de especificación (el QUÉ).  
-> NO escribas aquí código, arquitectura ni decisiones técnicas (eso es architect.md, Semana 4).
+> NO escribas aquí código, arquitectura compleja ni decisiones de infraestructura detalladas (eso corresponde a `design.md`, Semana 4). Las tecnologías listadas arriba actúan estrictamente como una restricción de entorno para el proyecto.
 
 ---
 
@@ -14,7 +15,7 @@
 
 Aplicación web que permite a los usuarios dejar comentarios y respuestas sobre los mismos comentarios.  
 
-Está pensada para un eso general de escala mínima que replica el caso de uso real de comentarios en medios digitales, por ejemplo. Los usuarios son lectores anónimos que solo deben indicar un nombre visible. El sistema existe para facilitar una conversación pública, simple y controlada alrededor del contenido de un comentario.
+Está pensada para un uso general de escala mínima que replica el caso de uso real de comentarios en medios digitales, por ejemplo. Los usuarios son lectores anónimos que solo deben indicar un nombre visible. El sistema existe para facilitar una conversación pública, simple y controlada alrededor del contenido de un comentario.
 
 ---
 
@@ -104,6 +105,7 @@ Está pensada para un eso general de escala mínima que replica el caso de uso r
 
 **Fuera de alcance de esta feature:** respuestas anidadas de más de un nivel, edición y borrado.
 
+---
 
 ## 6. Alcance del proyecto
 
@@ -130,9 +132,9 @@ Está pensada para un eso general de escala mínima que replica el caso de uso r
 
 ---
 
-## 7. Pendientes para Semana 4 (architect.md)
+## 7. Pendientes para Semana 4 (design.md)
 
 - ¿Cómo se identifica el artículo actual si no existe un listado ni gestión de artículos?
 - ¿Qué ocurre si se intenta crear una respuesta sobre un comentario que ya no existe?
-- ¿Cómo se generará y mostrará la fecha de creación de forma consistente?
-- ¿Se debe validar en el frontend, en el backend o en ambos?
+- ¿Cómo se generará y mostrará la fecha de creación de forma consistente usando PHP/MySQL?
+- ¿Se debe validar en el frontend con JavaScript, en el backend con PHP o en ambos?
