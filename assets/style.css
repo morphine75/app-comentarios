@@ -1,0 +1,237 @@
+/* =============================================================
+   style.css — Estilos de la App de Comentarios
+   Paso C (Agente 3: Frontend Dev Agent)
+   CSS nativo, sin frameworks (AGENTS.md §1).
+   Conversación única global (D-07).
+   ============================================================= */
+
+:root {
+    --texto: #1f2933;
+    --texto-suave: #616e7c;
+    --fondo: #f5f7fa;
+    --tarjeta: #ffffff;
+    --borde: #d9e2ec;
+    --acento: #2563eb;
+    --error-fondo: #fee2e2;
+    --error-texto: #b91c1c;
+    --error-borde: #fca5a5;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    background: var(--fondo);
+    color: var(--texto);
+    font-family: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    line-height: 1.5;
+}
+
+.contenedor {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 1.5rem 1rem 3rem;
+}
+
+h1 {
+    font-size: 1.6rem;
+    margin: 0 0 1rem;
+}
+
+h2 {
+    font-size: 1.1rem;
+    margin: 0 0 0.75rem;
+}
+
+/* --- Formulario --- */
+
+.formulario {
+    background: var(--tarjeta);
+    border: 1px solid var(--borde);
+    border-radius: 8px;
+    padding: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.formulario label {
+    display: block;
+    font-weight: 600;
+    font-size: 0.9rem;
+    margin: 0.75rem 0 0.25rem;
+}
+
+.formulario input,
+.formulario textarea {
+    width: 100%;
+    padding: 0.5rem 0.6rem;
+    border: 1px solid var(--borde);
+    border-radius: 6px;
+    font: inherit;
+    background: #fff;
+    color: var(--texto);
+}
+
+.formulario textarea {
+    resize: vertical;
+}
+
+.formulario input:focus,
+.formulario textarea:focus {
+    outline: 2px solid var(--acento);
+    outline-offset: 1px;
+    border-color: var(--acento);
+}
+
+.contador {
+    display: block;
+    text-align: right;
+    font-size: 0.8rem;
+    color: var(--texto-suave);
+    margin-top: 0.25rem;
+}
+
+.contador[hidden] {
+    display: none;
+}
+
+.mensaje-error {
+    background: var(--error-fondo);
+    color: var(--error-texto);
+    border: 1px solid var(--error-borde);
+    border-radius: 6px;
+    padding: 0.6rem 0.75rem;
+    font-size: 0.95rem;
+    margin: 0 0 0.75rem;
+}
+
+.formulario button {
+    margin-top: 1rem;
+    padding: 0.55rem 1.2rem;
+    border: none;
+    border-radius: 6px;
+    background: var(--acento);
+    color: #fff;
+    font: inherit;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.formulario button:hover:not(:disabled) {
+    filter: brightness(1.1);
+}
+
+.formulario button:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+/* --- Listado --- */
+
+.listado {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.vacio {
+    background: var(--tarjeta);
+    border: 1px dashed var(--borde);
+    border-radius: 8px;
+    padding: 1.25rem;
+    text-align: center;
+    color: var(--texto-suave);
+    margin: 0;
+}
+
+.comentario {
+    background: var(--tarjeta);
+    border: 1px solid var(--borde);
+    border-radius: 8px;
+    padding: 0.85rem 1rem;
+}
+
+.comentario header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 0.75rem;
+    margin-bottom: 0.35rem;
+}
+
+.comentario header strong {
+    font-size: 0.95rem;
+    overflow-wrap: anywhere;
+}
+
+.comentario time {
+    font-size: 0.8rem;
+    color: var(--texto-suave);
+    white-space: nowrap;
+}
+
+.comentario .contenido {
+    overflow-wrap: anywhere;
+}
+
+/* --- Responder (F-RES-001) --- */
+
+.enlace-responder {
+    display: inline-block;
+    margin-top: 0.5rem;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--acento);
+    text-decoration: none;
+}
+
+.enlace-responder:hover {
+    text-decoration: underline;
+}
+
+.form-respuesta {
+    margin: 0.75rem 0 0;
+    background: var(--fondo);
+    border-color: var(--borde);
+}
+
+.form-respuesta h3 {
+    font-size: 0.95rem;
+    margin: 0 0 0.5rem;
+}
+
+.respuestas {
+    margin: 0.75rem 0 0;
+    padding-left: 0.75rem;
+    border-left: 3px solid var(--borde);
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.respuesta {
+    background: var(--fondo);
+    border: 1px solid var(--borde);
+    border-radius: 6px;
+    padding: 0.65rem 0.85rem;
+}
+
+.respuesta header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 0.75rem;
+    margin-bottom: 0.25rem;
+}
+
+.respuesta header strong {
+    font-size: 0.9rem;
+    overflow-wrap: anywhere;
+}
+
+.respuesta time {
+    font-size: 0.78rem;
+    color: var(--texto-suave);
+    white-space: nowrap;
+}

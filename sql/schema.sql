@@ -30,3 +30,27 @@ CREATE TABLE comentarios (
 ) ENGINE=InnoDB
   DEFAULT CHARSET=utf8mb4
   COLLATE=utf8mb4_unicode_ci;
+
+-- -------------------------------------------------------------
+-- Tabla: respuestas (F-RES-001 — Responder a un comentario)
+--   comentario_padre_id -> FK SOLO hacia comentarios.id (RN-004, RN-006, D-03):
+--                           no existe ninguna columna que apunte a otra respuesta.
+--   fecha_creacion      -> la genera MySQL (DEFAULT CURRENT_TIMESTAMP);
+--                           ningún INSERT incluye esta columna (RN-007, D-08)
+--   Índice compuesto    -> orden por padre y fecha (D-05)
+--   Sin columna articulo_id: conversación única global (D-07)
+--   FK con restricción por defecto (RESTRICT): el borrado está fuera de alcance en v1
+-- -------------------------------------------------------------
+CREATE TABLE respuestas (
+  id                  INT UNSIGNED NOT NULL AUTO_INCREMENT,
+  comentario_padre_id INT UNSIGNED NOT NULL,
+  autor               VARCHAR(50)  NOT NULL,
+  contenido           VARCHAR(500) NOT NULL,
+  fecha_creacion      DATETIME     NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (id),
+  KEY idx_respuestas_padre_fecha (comentario_padre_id, fecha_creacion),
+  CONSTRAINT fk_respuestas_comentario
+    FOREIGN KEY (comentario_padre_id) REFERENCES comentarios (id)
+) ENGINE=InnoDB
+  DEFAULT CHARSET=utf8mb4
+  COLLATE=utf8mb4_unicode_ci;
